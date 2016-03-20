@@ -1,0 +1,41 @@
+<?php
+
+return [
+	'common' => [
+		'debug' => true,
+		'monolog.logfile' => __DIR__ . '/../app/logs/development.log',
+		'asset.path' => __DIR__ . '/../public/assets',
+		'document.path' => __DIR__ . '/../public/document'
+	],
+	'db' => [
+		'db.options' => [
+			'driver' => 'pdo_mysql',
+			'host' => '127.0.0.1',
+			'username' => 'root',
+			'password' => '',
+			'dbname' => 'hmif_official'
+		],
+	],
+	'twig' => [
+		'twig.path' => __DIR__ . '/../src/Templates',
+		'twig.options' => [
+			'cache' => __DIR__ . '/cache/app_template',
+			'auto_reload' => true
+		]
+	],
+	'profiler' => [
+		'profiler.cache_dir' => __DIR__ . '/cache/profiler'
+	],
+	'orm' => [
+        'orm.em.options' => [
+            'mappings' => [
+                [
+                    'type' => 'annotation',
+                    'namespace' => 'Jimmy\hmifOfficial\Domain\Entity',
+                    'path' => __DIR__ . '/../src/Domain/Entity',
+                ]
+            ],
+        ],
+        'orm.proxies_dir' => __DIR__ . '/proxies',
+    ],
+];

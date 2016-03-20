@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <title>HMIF System v1.0 - LOGIN</title>
+    <meta name="keywords" content="HTML5 Bootstrap 3 Admin Template UI Theme" />
+    <meta name="description" content="RPP Rev 1.0">
+    <meta name="author" content="AdminDesigns">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font CSS (Via CDN) -->
+    <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,300">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}assets/skin/default_skin/css/theme.css">
+
+    <!-- Admin Forms CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}assets/admin-tools/admin-forms/css/admin-forms.css">
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}assets/skin/default_skin/css/customed.css">
+
+    <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}assets/css/global_style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ app.request.basepath }}assets/img/favicon.ico">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="external-page sb-l-c sb-r-c">
+
+<!-- Start: Main -->
+<div id="main" class="animated fadeIn">
+
+    <!-- Start: Content-Wrapper -->
+    <section id="content_wrapper">
+
+        <!-- begin canvas animation bg -->
+        <div id="canvas-wrapper">
+            <canvas id="demo-canvas"></canvas>
+        </div>
+
+        <!-- Begin: Content -->
+        <section id="content">
+
+            <div class="admin-form theme-info" id="login1">
+
+                <div class="row mb15 table-layout">
+                            <h1 class="h1-logo"><i class="imoon imoon-equalizer"></i> HMIF <small>SYSTEM v1.0</small></h1>
+                </div>
+                <div class="panel panel-info mt10">
+
+                    {% for message in app.session.getFlashBag.get('message_success') %}
+                    <strong> <div class="alert alert-success alert-dismissable" >
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            {{ message }}
+                        </div>
+                    </strong>
+                    {% endfor %}
+                    {% for message in app.session.getFlashBag.get('message_error') %}
+                        <strong> <div class="alert alert-danger alert-dismissable" >
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ message }}
+                            </div>
+                        </strong>
+                    {% endfor %}
+
+                    <!-- end .form-header section -->
+                    <form method="post" action="{{app.url_generator.generate('loginAdmin') }}" id="contact">
+                        <div class="panel-body bg-light p30">
+                            <div class="row">
+                                <div class="form-group">
+
+                                    <div class="section">
+                                        {{ form_row(form.username) }}
+                                        <br>
+                                        {{ form_row(form.password) }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end .form-body section -->
+                        <div class="panel-footer clearfix p10 ph15">
+                            {{ form_row(form.login) }}
+                           
+                            <label class="switch block switch-primary pull-left input-align mt10">
+                                <input type="checkbox" name="remember" id="remember" checked>
+                                <label for="remember" data-on="YES" data-off="NO"></label>
+                                <span>Remember me</span>
+
+
+                            </label>
+
+                        </div>
+                        <!-- end .form-footer section -->
+                        {{ form_rest(form) }}
+                    </form>
+                </div>
+            </div>
+
+        </section>
+        <!-- End: Content -->
+
+    </section>
+    <!-- End: Content-Wrapper -->
+
+</div>
+<!-- End: Main -->
+
+<!-- BEGIN: PAGE SCRIPTS -->
+
+<!-- jQuery -->
+<script type="text/javascript" src="{{ app.request.basepath }}assets/vdr/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{ app.request.basepath }}assets/vdr/jquery/jquery_ui/jquery-ui.min.js"></script>
+
+<!-- Bootstrap -->
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/bootstrap/bootstrap.min.js"></script>
+
+<!-- Page Plugins -->
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/pages/login/EasePack.min.js"></script>
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/pages/login/rAF.js"></script>
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/pages/login/TweenLite.min.js"></script>
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/pages/login/login.js"></script>
+
+<!-- Theme Javascript -->
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/utility/utility.js"></script>
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/main.js"></script>
+<script type="text/javascript" src="{{ app.request.basepath }}assets/js/demo.js"></script>
+
+<!-- Page Javascript -->
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+
+        "use strict";
+
+        // Init Theme Core
+        Core.init();
+
+        // Init Demo JS
+        Demo.init();
+
+        // Init CanvasBG and pass target starting location
+        CanvasBG.init({
+            Loc: {
+                x: window.innerWidth / 2,
+                y: window.innerHeight / 3.3
+            },
+        });
+
+
+    });
+</script>
+
+<!-- END: PAGE SCRIPTS -->
+
+</body>
+
+</html>
+
