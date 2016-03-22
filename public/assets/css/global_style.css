@@ -20,6 +20,19 @@ body.external-page #content .admin-form {
 	max-width:400px;
 }
 
+body.external-page #content .panel {
+	border-top-color: #3498DB;
+}
+body.external-page #content .admin-form {
+	position: relative;
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+	margin-top: 8%;
+}
+body.external-page #main {
+	background: url("../img/login.jpg") no-repeat top center #2d494d;
+}
 div.row.mb15.table-layout h1.h1-logo {
 	font-size: 3em;
 	color: #000;

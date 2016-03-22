@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===========================
+    THEME INFO
+    =========================== -->
+    <meta name="description" content="Oficial Web">
+    <meta name="keywords" content="Free Portfolio Template, Free Template, Free Bootstrap Template, Dribbble Portfolio Template, Free HTML5 Template">
+    <meta name="author" content="EvenFly Team">
+
+    <title>HMIF STT Malang</title>
+
+    <link rel="icon" href="{{ app.request.basepath }}assets/img/hmif.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ app.request.basepath }}assets/img/apple-touch-icon-ipad-retina.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ app.request.basepath }}assets/img/apple-touch-icon-iphone-retina.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ app.request.basepath }}assets/img/apple-touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ app.request.basepath }}assets/img/apple-touch-icon-iphone.png" />
+
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/preloader.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/style.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/responsive.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/animate.css">
+
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.3/css/simple-line-icons.css">
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Antic|Raleway:300">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body data-spy="scroll">
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">
+        <!--<div class="loadicon icon-settings fa-spin" style="color: #000;"></div>-->
+        <div class="fa fa-sun-o fa-spin" style="color: #000;"></div>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}
+
+
+<!-- ===========================
+FOOTER START
+=========================== -->
+<footer>
+    <div class="container">
+        <span class="bigicon icon-speedometer "></span>
+
+        <div class="footerlinks"><!-- FOOTER LINKS START -->
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#portfolio">Team</a></li>
+                <li><a href="mailto:komaltechno@gmail.com">Contact</a></li>
+                <li><a href="{{ ('/loginAdmin') }}"><i class="imoon imoon-lock"></i>Sign In</a></li>
+            </ul>
+        </div><!-- FOOTER LINKS END -->
+
+        <div class="copyright"><!-- FOOTER COPYRIGHT START -->
+            <p>HMIF&rsquo;s Logo and HMIF Trademark&rsquo;s copyright is belong to HMIF and valid until the end of 2016.</p>
+        </div><!-- FOOTER COPYRIGHT END -->
+
+        <div class="footersocial wow fadeInUp" data-wow-duration="1s"><!-- FOOTER SOCIAL ICONS START -->
+            <ul>
+                <li><a href="http://facebook.com/MamunSrizon"><span class="icon-social-facebook"></span></a></li>
+                <li><a href="http://twitter.com/MamunSrizon"><span class="icon-social-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-social-youtube"></span></a></li>
+                <li><a href=""><span class="icon-social-dribbble"></span></a></li>
+                <li><a href="#"><span class="icon-social-tumblr"></span></a></li>
+            </ul>
+        </div><!-- FOOTER SOCIAL ICONS END -->
+    </div>
+</footer><!-- FOOTER END -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{{ app.request.basepath }}assets/js/jquery-2.1.4.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ app.request.basepath }}assets/js/bootstrap.min.js"></script>
+
+<!--Other necessary scripts-->
+<script src="{{ app.request.basepath }}assets/js/scrollTo.js"></script>
+<script src="{{ app.request.basepath }}assets/js/parallax.js"></script>
+<!--<script src="js/jquery.nicescroll.min.js"></script>-->
+<script src="{{ app.request.basepath }}assets/js/nicescroll.js"></script>
+<script src="{{ app.request.basepath }}assets/js/jquery.jribbble-1.0.1.ugly.js"></script>
+<script src="{{ app.request.basepath }}assets/js/drifolio.js"></script>
+<script src="{{ app.request.basepath }}assets/js/wow.min.js"></script>
+<script src="{{ app.request.basepath }}assets/js/global.js"></script>
+<script>
+
+    new WOW().init();
+</script>
+</body>
+</html>

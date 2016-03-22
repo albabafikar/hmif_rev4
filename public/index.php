@@ -13,7 +13,7 @@ $app = new \Silex\Application(
 require 'bootstrap.php';
 
 $app->get('/', function () use ($app) {
-	return $app->redirect($app['url_generator']->generate('homeAdmin'));
+	return $app->redirect($app['url_generator']->generate('home'));
 });
 
 $app->mount('/', new \Jimmy\hmifOfficial\Http\Controller\AppController($app));
