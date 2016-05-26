@@ -19,7 +19,7 @@ class News
 {
     /**
      * @id
-     * @Column(type="integer")
+     * @Column(type="integer", name="news_id")
      * @GeneratedValue
      * @var int
      */
@@ -44,7 +44,7 @@ class News
     private $createdAt;
 
     /**
-     * @Column(type="datetime", name="updated_at", nullable=true)
+     * @Column(type="datetime", name="update_at", nullable=true)
      * @var \Datetime
      */
     private $updatedAt;

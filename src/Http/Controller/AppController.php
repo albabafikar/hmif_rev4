@@ -70,6 +70,9 @@ class AppController implements ControllerProviderInterface
         $controller->match('/editUser', [$this, 'editUserAction'])
             ->bind('editUser');
 
+        $controller->get('/newsList', [$this, 'newsListAction'])
+            ->bind('newsList');
+
         return $controller;
 
     }
@@ -77,6 +80,15 @@ class AppController implements ControllerProviderInterface
     public function errorPageAction()
     {
         return $this->app['twig']->render('in264/error404.twig');
+    }
+
+    public function newsListAction()
+    {
+        $listNews = $this->app['news.repository']->findAll();
+
+        return $this->app['twig']->render('in264/listNews.twig', [
+            'newsList' => $listNews
+        ]);
     }
 
     /**

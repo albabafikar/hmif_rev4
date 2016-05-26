@@ -71,3 +71,10 @@ $app->register(new \Silex\Provider\ValidatorServiceProvider());
 $app['user.repository'] = function () use ($app) {
     return $app['orm.em']->getRepository(\Jimmy\hmifOfficial\Domain\Entity\User::class);
 };
+
+/**
+ * Register News Entity Repository
+ */
+$app['news.repository'] = function () use ($app) {
+    return $app['orm.em']->getRepository(\Jimmy\hmifOfficial\Domain\Entity\News::class);
+};
