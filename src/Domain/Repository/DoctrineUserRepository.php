@@ -25,6 +25,6 @@ class DoctrineUserRepository extends EntityRepository implements UserRepositoryI
 
     public function findByStatus($status)
     {
-        return $this->find($status);
+        return $this->findBy(['status' => $status]);
     }
 }

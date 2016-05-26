@@ -16,22 +16,22 @@ use Jimmy\hmifOfficial\Domain\Services\UserServices;
 
 class AppController implements ControllerProviderInterface
 {
-	private $app;
+    private $app;
 
-	public function __construct(Application $app)
-	{
-		$this->app = $app;
-	}
+    public function __construct(Application $app)
+    {
+        $this->app = $app;
+    }
 
-	public function connect(Application $app)
-	{
-		$controller = $app['controllers_factory'];
+    public function connect(Application $app)
+    {
+        $controller = $app['controllers_factory'];
 
         $controller->get('/error404', [$this, 'errorPageAction'])
             ->bind('errorPage');
 
-		$controller->get('/home',[$this, 'homeAction'])
-		->bind('home');
+        $controller->get('/home',[$this, 'homeAction'])
+            ->bind('home');
 
         $controller->match('/loginAdmin', [$this, 'adminLoginAction'])
             ->before([$this, 'checkUserRole'])
@@ -67,9 +67,12 @@ class AppController implements ControllerProviderInterface
         $controller->get('/delete/{id}', [$this, 'deleteUserAction'])
             ->bind('deleteUser');
 
-		return $controller;
+        $controller->match('/editUser', [$this, 'editUserAction'])
+            ->bind('editUser');
 
-	}
+        return $controller;
+
+    }
 
     public function errorPageAction()
     {
@@ -91,6 +94,31 @@ class AppController implements ControllerProviderInterface
         );
 
         return $this->app->redirect($this->app['url_generator']->generate('listUser'));
+    }
+
+    public function editUserAction(Request $request)
+    {
+        if ($request->getMethod() === 'POST') {
+            $em = $this->app['orm.em'];
+            $userUpdate = $em->getRepository('Jimmy\hmifOfficial\Domain\Entity\User')->findById($request->get('id'));
+
+            $userUpdate->setId($request->get('id'));
+            $userUpdate->setPassword($request->get('password'));
+            $userUpdate->setRole($request->get('role'));
+            $this->app['session']->getFlashBag()->add(
+                'message_success',
+                'Command completed successfully'
+            );
+
+            $em->flush();
+
+            return $this->app->redirect($this->app['url_generator']->generate('listUser'));
+        }
+
+        $userInfo = $this->app['user.repository']->findById($request->get('id'));
+        return $this->app['twig']->render('in264/editUser.twig', [
+            'infoUser' => $userInfo
+        ]);
     }
 
     /**
@@ -181,7 +209,12 @@ class AppController implements ControllerProviderInterface
 
     public function homeAdminAction()
     {
-        return $this->app['twig']->render('in264/adminHome.twig');
+        $userInfo = count($this->app['user.repository']->findAll());
+        $activeUser = count($this->app['user.repository']->findByStatus("1"));
+        $inactiveUser = count($this->app['user.repository']->findByStatus("0"));
+
+        return $this->app['twig']->render('in264/adminHome.twig',['infoUser' => $userInfo, 'active' => $activeUser, 'inactive' => $inactiveUser]);
+//        return $userInfo;
     }
 
     /**
@@ -200,10 +233,10 @@ class AppController implements ControllerProviderInterface
     /**
      * @return mixed
      */
-	public function homeAction()
-	{
-		return $this->app['twig']->render('home.twig');
-	}
+    public function homeAction()
+    {
+        return $this->app['twig']->render('home.twig');
+    }
 
     public function checkUserRole(Request $request)
     {

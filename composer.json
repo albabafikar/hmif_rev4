@@ -15,7 +15,8 @@
         "symfony/form": "^2.7",
         "symfony/security": "^2.7",
         "symfony/twig-bridge": "^2.7",
-        "symfony/security-csrf": "^2.7"
+        "symfony/security-csrf": "^2.7",
+        "symfony/assetic-bundle": "^2.8"
     },
     "require-dev": {
         "behat/behat": "^3.0",

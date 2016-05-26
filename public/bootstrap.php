@@ -20,13 +20,15 @@ $app->register(new \Silex\Provider\TwigServiceProvider(), $config['twig']);
  */
 $app->register(new \Silex\Provider\MonologServiceProvider());
 
+//$app->register(new \Symfony\Bundle\AsseticBundle\AsseticBundle($config));
+
 /**
  * register web profiler
  */
-if ($app['debug']) {
-    Symfony\Component\Debug\Debug::enable(E_ALL, true);
-    $app->register(new Silex\Provider\WebProfilerServiceProvider(), $config['profiler']);
-}
+ if ($app['debug']) {
+     Symfony\Component\Debug\Debug::enable(E_ALL, true);
+     $app->register(new Silex\Provider\WebProfilerServiceProvider(), $config['profiler']);
+ }
 
 /**
  * register form service provider

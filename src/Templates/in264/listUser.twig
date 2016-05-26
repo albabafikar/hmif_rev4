@@ -14,7 +14,7 @@
 						</div>
 						{% for message in app.session.getFlashBag.get('message_success') %}
 							<div class="alert alert-success alert-dismissable">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times"></i></button>
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="imoon imoon-cross"></i></button>
 								<span style="color:#444">{{ message}}</span>
 							</div>
 						{% endfor %}
@@ -74,7 +74,7 @@
 														{% else %}
 															<a href="/changeStatus/{{ list.id }}" title="Activate Account"><i class="glyphicons glyphicons-unlock" style="color:#2ecc71;"></i></a>
 														{% endif %}
-														<a href="#" title="Edit Account"><i class="glyphicons glyphicons-pencil" style="color:#9b59b6;"></i></a>
+														<a href="/editUser?id={{ list.id }}" title="Edit Account"><i class="glyphicons glyphicons-pencil" style="color:#9b59b6;"></i></a>
 													</td>
 												{% endif %}
 
