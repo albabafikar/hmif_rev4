@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/style.css">
     <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/responsive.css">
     <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/animate.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}assets/css/global_style.css">
 
     <link rel="stylesheet" href="{{ app.request.basepath }}assets/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.3/css/simple-line-icons.css">
@@ -62,7 +63,14 @@ FOOTER START
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="mailto:komaltechno@gmail.com">Contact</a></li>
-                <li><a href="{{ ('/loginAdmin') }}">Sign In</a></li>
+                <li>
+                    {% if(app.session.get('uname')['value'] is defined) %}
+                        <a href="{{ ('/homeAdmin') }}">{{ app.session.get('uname')['value'] }}</a>
+                    {% else %}
+                        <a href="{{ ('/loginAdmin') }}">Sign In</a>
+
+                    {% endif %}
+                </li>
             </ul>
         </div><!-- FOOTER LINKS END -->
 

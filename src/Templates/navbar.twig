@@ -24,7 +24,14 @@
                     <li><a href="#team"><span class="btnicon icon-user"></span>Team</a></li>
                     <li><a href="#news"><span class="btnicon icon-feed"></span>News</a></li>
                     <li><a href="mailto:hmifsttmalang@gmail.com"><span class="btnicon icon-envelope-open"></span>Contact</a></li>
+                    {% if(app.session.get('uname')['value'] is defined) %}
+                        <li><a href="{{ ('/homeAdmin') }}" style="text-transform: capitalize;"><span class="btnicon icon-home"></span>{{ app.session.get('uname')['value'] }}</a></li>
+
+                    {% else %}
+
                     <li><a href="{{ ('/loginAdmin') }}"><span class="btnicon icon-login"></span>Sign In</a></li>
+
+                    {% endif %}
                     <!--<li class="active"><a href=""><span class="btnicon icon-cloud-download"></span>Download CV</a></li>-->
                 </ul>
 

@@ -288,7 +288,8 @@ class AppController implements ControllerProviderInterface
      */
     public function homeAction()
     {
-        return $this->app['twig']->render('home.twig');
+        $infoNews = $this->app['news.repository']->findAll();
+        return $this->app['twig']->render('home.twig', ['news' => $infoNews]);
     }
 
     public function checkUserRole(Request $request)

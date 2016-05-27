@@ -73,7 +73,7 @@ FEATURED CLIENTS SECTION START
     </div>
     <hr><!-- SECTION SEPARETOR LINE -->
 
-    
+
     <!-- ===========================
     SERVICE SECTION START
     =========================== -->
@@ -248,7 +248,7 @@ FEATURED CLIENTS SECTION START
 
     </div><!-- PORTFOLIO ITEMS END -->
     <!-- PORTFOLIO SECTION END -->
-    <div id="news">
+    <div id="news" class="whiteBack">
         <div class="container">
             <div class="sectionhead  row wow fadeInUp">
                 <span class="bigicon icon-feed" style="color:#2ecc71"></span>
@@ -258,48 +258,31 @@ FEATURED CLIENTS SECTION START
             <div id="newsCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#newsCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#newsCarousel" data-slide-to="1"></li>
-                    <li data-target="#newsCarousel" data-slide-to="2"></li>
-                    <li data-target="#newsCarousel" data-slide-to="3"></li>
+                    {% set i = 1 %}
+                    {% for something in news %}
+                    <li data-target="#newsCarousel" data-slide-to="{{ i }}"></li>
+                    {% endfor %}
                 </ol>
 
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <img src="{{ app.request.basepath }}assets/img/asd.png" alt="Chania">
+                    <div class="item active" style="height: 500px;">
                         <div class="carousel-caption">
-                            <h2>Lorem Ipsum</h2>
+                            <h2>Loading ...</h2>
                             <br/>
-                            <p>Lorem Ipsum dolor sit amet, consectetur adispiscing elit. bleh bleh bleh i never working for this shit and going to piss on my face.</p>
-                            <a href="" class="btn btn-primary btn-lg"><span>Read More</span></a>
+                            <pre><p>Please wait, while we loading news for you.</p></pre>
                         </div>
                     </div>
-                    <div class="item">
-                        <img src="{{ app.request.basepath }}assets/img/asd.png" alt="Chania">
-                        <div class="carousel-caption">
-                            <h2>Lorem Ipsum</h2>
-                            <br/>
-                            <p>Lorem Ipsum dolor sit amet, consectetur adispiscing elit. bleh bleh bleh i never working for this shit and going to piss on my face.</p>
-                            <a href="" class="btn btn-primary btn-lg"><span>Read More</span></a>
+                    {% for infoNews in news %}
+                        <div class="item" style="height: 500px;">
+                            <div class="carousel-caption">
+                                <h2>{{ infoNews.title }}</h2>
+                                <br/>
+                                <pre><p>{{ infoNews.content }}</p></pre>
+                                <a href="" class="btn btn-primary btn-lg btn-flat"><span>Read More</span></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <img src="{{ app.request.basepath }}assets/img/asd.png" alt="Chania">
-                        <div class="carousel-caption">
-                            <h2>Lorem Ipsum</h2>
-                            <br/>
-                            <p>Lorem Ipsum dolor sit amet, consectetur adispiscing elit. bleh bleh bleh i never working for this shit and going to piss on my face.</p>
-                            <a href="" class="btn btn-lg btn-primary"><span>Read More</span></a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="{{ app.request.basepath }}assets/img/asd.png" alt="Chania">
-                        <div class="carousel-caption">
-                            <h2>Lorem Ipsum</h2>
-                            <br/>
-                            <p>Lorem Ipsum dolor sit amet, consectetur adispiscing elit. bleh bleh bleh i never working for this shit and going to piss on my face.</p>
-                            <a href="" class="btn btn-primary btn-lg"><span>Read More</span></a>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>

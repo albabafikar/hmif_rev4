@@ -82,3 +82,39 @@ div.row.mb15.table-layout h1.h1-logo > small {
 a,a:hover{
 	text-decoration: none;
 }
+
+#news {
+	background: url('../img/diagonal-line-bg-light.png') repeat fixed;
+	/*background-size:cover;*/
+	/*background-color: #fff;*/
+}
+
+.whiteBack {
+	background-color: #fff;
+	z-index: 1000;
+}
+
+#news p {
+	/*color:#000;*/
+	/*font-weight: 700;*/
+	background-color: rgba(255,255,255,.3);
+	padding:20px 10px;
+}
+
+#news p{
+	word-break: break-all;
+	word-wrap: break-word;
+}
+#news pre {
+	display: block;
+	padding: 9.5px;
+	margin: 0 0 10px;
+	font-size: 13px;
+	line-height: 1.42857143;
+	color: #333;
+	word-break: break-all;
+	word-wrap: break-word;
+	background-color: transparent;
+	border: none;
+	/*border-radius: 4px;*/
+}
