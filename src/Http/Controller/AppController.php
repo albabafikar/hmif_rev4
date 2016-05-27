@@ -4,6 +4,7 @@ namespace Jimmy\hmifOfficial\Http\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Jimmy\hmifOfficial\Domain\Entity\News;
+use Jimmy\hmifOfficial\Domain\Services\NewsService;
 use Silex\Application;
 use Silex\ControllerCollection;
 use Silex\ControllerProviderInterface;
@@ -77,8 +78,26 @@ class AppController implements ControllerProviderInterface
         $controller->match('/createNews', [$this, 'createNewsAction'])
             ->bind('createNews');
 
+        $controller->get('/changeFeaturedStatus', [$this, 'changeFeaturedStatusAction'])
+            ->bind('changeFeaturedStatus');
+
         return $controller;
 
+    }
+
+    public function changeFeaturedStatusAction(Request $request)
+    {
+        $news = $this->app['news.repository']->findById($request->get('newsId'));
+
+        NewsService::changeFeaturedStatus($news);
+        $this->app['orm.em']->persist($news);
+        $this->app['orm.em']->flush();
+        $this->app['session']->getFlashBag()->add(
+            'message_success',
+            'Command completed successfully'
+        );
+
+        return $this->app->redirect($this->app['url_generator']->generate('newsList'));
     }
 
     public function createNewsAction(Request $request)
