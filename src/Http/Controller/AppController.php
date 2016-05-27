@@ -3,6 +3,7 @@
 namespace Jimmy\hmifOfficial\Http\Controller;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Jimmy\hmifOfficial\Domain\Entity\News;
 use Silex\Application;
 use Silex\ControllerCollection;
 use Silex\ControllerProviderInterface;
@@ -73,13 +74,29 @@ class AppController implements ControllerProviderInterface
         $controller->get('/newsList', [$this, 'newsListAction'])
             ->bind('newsList');
 
+        $controller->match('/createNews', [$this, 'createNewsAction'])
+            ->bind('createNews');
+
         return $controller;
 
     }
 
-    public function errorPageAction()
+    public function createNewsAction(Request $request)
     {
-        return $this->app['twig']->render('in264/error404.twig');
+
+        if ($request->getMethod() === 'POST') {
+            $content = $request->get('contentNews');
+            $contentTitle = $request->get('contentTitle');
+
+            $newsInfo = News::create($contentTitle,$content, $this->app['session']->get('uname')['value']);
+
+            $this->app['orm.em']->persist($newsInfo);
+            $this->app['orm.em']->flush();
+
+            return $this->app->redirect($this->app['url_generator']->generate('newsList'));
+        }
+
+        return $this->app['twig']->render('in264/createNews.twig');
     }
 
     public function newsListAction()
@@ -89,6 +106,11 @@ class AppController implements ControllerProviderInterface
         return $this->app['twig']->render('in264/listNews.twig', [
             'newsList' => $listNews
         ]);
+    }
+
+    public function errorPageAction()
+    {
+        return $this->app['twig']->render('in264/error404.twig');
     }
 
     /**

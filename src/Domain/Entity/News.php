@@ -56,18 +56,27 @@ class News
     private $username;
 
     /**
+     * @Column(name="featured", type="integer", nullable=false)
+     * @var int
+     */
+    private $featured;
+
+
+    /**
      * @param $title
      * @param $content
+     * @param $username
      * @return News
      */
     public static function create($title, $content, $username)
     {
         $newsInfo = new News();
 
-        $newsInfo->title = $title;
-        $newsInfo->content = $content;
-        $newsInfo->username = $username;
-        $newsInfo->createdAt = new \DateTime();
+        $newsInfo->setTitle($title);
+        $newsInfo->setContent($content);
+        $newsInfo->setUsername($username);
+        $newsInfo->setFeatured(0);
+        $newsInfo->setCreatedAt(new \DateTime());
 
         return $newsInfo;
     }
@@ -118,6 +127,22 @@ class News
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
+
+    /**
+     * @param $featured
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
     }
 
     /**
