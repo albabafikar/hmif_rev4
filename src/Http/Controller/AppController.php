@@ -288,7 +288,7 @@ class AppController implements ControllerProviderInterface
      */
     public function homeAction()
     {
-        $infoNews = $this->app['news.repository']->findAll();
+        $infoNews = $this->app['news.repository']->findByFeaturedStatus(1);
         return $this->app['twig']->render('home.twig', ['news' => $infoNews]);
     }
 

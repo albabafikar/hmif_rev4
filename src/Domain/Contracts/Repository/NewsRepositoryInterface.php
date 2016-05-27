@@ -18,13 +18,19 @@ interface NewsRepositoryInterface
 {
     /**
      * @param $id
-     * @return mixed
+     * @return News
      */
     public function findById($id);
 
     /**
      * @param $username
-     * @return mixed
+     * @return News
      */
     public function findByUsername($username);
+
+    /**
+     * @param $featured
+     * @return News
+     */
+    public function findByFeaturedStatus($featured);
 }

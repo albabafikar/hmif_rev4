@@ -22,4 +22,9 @@ class DoctrineNewsRepository extends EntityRepository implements NewsRepositoryI
     {
         return $this->find(['username' => $username]);
     }
+
+    public function findByFeaturedStatus($featured)
+    {
+        return $this->findBy(['featured' => $featured]);
+    }
 }
