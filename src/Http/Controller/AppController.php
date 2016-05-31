@@ -81,8 +81,51 @@ class AppController implements ControllerProviderInterface
         $controller->get('/changeFeaturedStatus', [$this, 'changeFeaturedStatusAction'])
             ->bind('changeFeaturedStatus');
 
+        $controller->match('/editNews', [$this, 'editNewsAction'])
+            ->bind('editNews');
+
+        $controller->get('/deleteNews', [$this, 'deleteNewsAction'])
+            ->bind('deleteNews');
+
         return $controller;
 
+    }
+
+    public function deleteNewsAction(Request $request)
+    {
+        $user = $this->app['news.repository']->findById($this->app['request']->get('id'));
+
+        $this->app['orm.em']->remove($user);
+        $this->app['orm.em']->flush();
+        $this->app['session']->getFlashBag()->add(
+            'message_success',
+            'News deleted successfully'
+        );
+        return $this->app->redirect($this->app['url_generator']->generate('newsList'));
+    }
+
+    public function editNewsAction(Request $request)
+    {
+        if ($request->getMethod() === 'POST') {
+            $em = $this->app['orm.em'];
+
+            $news = $em->getRepository('Jimmy\hmifOfficial\Domain\Entity\News')->findById($request->get('id'));
+
+            $news->setNewsId($request->get('id'));
+            $news->setTitle($request->get('contentTitle'));
+            $news->setContent($request->get('contentNews'));
+            $news->setUpdatedAt(new \DateTime());
+
+            $em->flush();
+
+            return $this->app->redirect($this->app['url_generator']->generate('newsList'));
+        }
+
+        $newsInfo = $this->app['news.repository']->findById($request->get('id'));
+
+        return $this->app['twig']->render('in264/editNews.twig', ['infoNews' => $newsInfo]);
+
+//        return json_encode($newsInfo);
     }
 
     public function changeFeaturedStatusAction(Request $request)

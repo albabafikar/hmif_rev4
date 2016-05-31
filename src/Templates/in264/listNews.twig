@@ -58,11 +58,12 @@
                                                             {#<i class="glyphicons glyphicons-bin" style="color: #EC6F5A"></i>#}
                                                         {#</a>#}
                                                         {% if (list.featured == '0') %}
-                                                            <a href="/changeFeaturedStatus?newsId={{ list.newsId }}" title="Mark as Featured"><i class="glyphicons glyphicons-star" style="color:#2ecc71;"></i></a>
+                                                            <a href="/changeFeaturedStatus?newsId={{ list.newsId }}" title="Mark as Featured"><i class="glyphicons glyphicons-star" style="color:#2ecc71;"></i></a>&nbsp;
                                                         {% else %}
-                                                            <a href="/changeFeaturedStatus?newsId={{ list.newsId }}" title="Remove from Featured"><i class="glyphicons glyphicons-dislikes" style="color:#e74c3c;"></i></a>
+                                                            <a href="/changeFeaturedStatus?newsId={{ list.newsId }}" title="Remove from Featured"><i class="glyphicons glyphicons-dislikes" style="color:#e74c3c;"></i></a>&nbsp;
                                                         {% endif %}
-                                                        <a href="/editUser?id={{ list.newsId }}" title="Edit Account"><i class="glyphicons glyphicons-pencil" style="color:#9b59b6;"></i></a>
+                                                        <a href="/editNews?id={{ list.newsId }}" title="Edit News"><i class="glyphicons glyphicons-pencil" style="color:#9b59b6;"></i></a>&nbsp;
+                                                        <a href="/deleteNews?id={{ list.newsId }}" title="Delete News"><i class="glyphicons glyphicons-bin" style="color:#b60b00;"></i></a>
                                                     </td>
                                                 {% endif %}
 

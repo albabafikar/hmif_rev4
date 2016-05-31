@@ -23,43 +23,43 @@ class News
      * @GeneratedValue
      * @var int
      */
-    private $newsId;
+    public $newsId;
 
     /**
      * @Column(type="string", length=255, nullable=false)
      * @var string
      */
-    private $title;
+    public $title;
 
     /**
      * @Column(type="string", length=255, nullable=false)
      * @var string
      */
-    private $content;
+    public $content;
 
     /**
      * @Column(type="datetime", name="created_at", nullable=false)
      * @var \Datetime
      */
-    private $createdAt;
+    public $createdAt;
 
     /**
      * @Column(type="datetime", name="update_at", nullable=true)
      * @var \Datetime
      */
-    private $updatedAt;
+    public $updatedAt;
 
     /**
      * @Column(type="string", length=128, nullable=false)
      * @var string
      */
-    private $username;
+    public $username;
 
     /**
      * @Column(name="featured", type="integer", nullable=false)
      * @var int
      */
-    private $featured;
+    public $featured;
 
 
     /**
