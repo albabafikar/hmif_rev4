@@ -265,23 +265,34 @@ FEATURED CLIENTS SECTION START
                 </ol>
 
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active" style="height: 500px;">
-                        <div class="carousel-caption">
-                            <h2>Loading ...</h2>
-                            <br/>
-                            <pre><p>Please wait, while we loading news for you.</p></pre>
-                        </div>
-                    </div>
-                    {% for infoNews in news %}
-                        <div class="item" style="height: 500px;">
+
+                    {% if (news == null) %}
+                        <div class="item active" style="height: 500px;">
                             <div class="carousel-caption">
-                                <h2>{{ infoNews.title }}</h2>
+                                <h2>News Not Available</h2>
                                 <br/>
-                                <pre><p>{{ infoNews.content }}</p></pre>
-                                <a href="" class="btn btn-primary btn-lg btn-flat"><span>Read More</span></a>
+                                <pre><p>News Not Available for a moment.</p></pre>
                             </div>
                         </div>
-                    {% endfor %}
+                    {% else %}
+                        <div class="item active" style="height: 500px;">
+                            <div class="carousel-caption">
+                                <h2>Loading ...</h2>
+                                <br/>
+                                <pre><p>Please wait, while we loading news for you.</p></pre>
+                            </div>
+                        </div>
+                        {% for infoNews in news %}
+                            <div class="item" style="height: 500px;">
+                                <div class="carousel-caption">
+                                    <h2>{{ infoNews.title }}</h2>
+                                    <br/>
+                                    <pre><p>{{ infoNews.content }}</p></pre>
+                                    <a href="" class="btn btn-primary btn-lg btn-flat"><span>Read More</span></a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
 
                 </div>
             </div>

@@ -310,7 +310,6 @@ class AppController implements ControllerProviderInterface
         $inactiveUser = count($this->app['user.repository']->findByStatus("0"));
 
         return $this->app['twig']->render('in264/adminHome.twig',['infoUser' => $userInfo, 'active' => $activeUser, 'inactive' => $inactiveUser]);
-//        return $userInfo;
     }
 
     /**
