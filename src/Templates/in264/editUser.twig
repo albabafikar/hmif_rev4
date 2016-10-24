@@ -1,0 +1,73 @@
+{% extends 'in264/layout/head.twig' %}
+{% block content %}
+    <section id="content" class="table-layout animated fadeIn">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    &nbsp;
+                </div>
+                <div class="col-md-6">
+                    <div class="f-center">
+                        <i class="glyphicons glyphicons-3x glyphicons-user_add"></i>
+                        <h1> Edit User</h1>
+                        <p>Please verify before execute !</p>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="panel" style="border:6px solid rgba(204, 204, 204,0.5)">
+                        <div class="panel-heading">
+                            <span class="panel-title"><i class="imoon imoon-quill"></i> Input Informations</span>
+                        </div>
+                        <div class="panel-body">
+                            <form method="post" class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <span class="append-icon right"><i class="fa fa-user"></i></span>
+                                        <input type="text" name="username" value="{{ infoUser.username }}" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <span class="append-icon right"><i class="fa fa-lock"></i></span>
+                                        <input type="password" name="password" class="form-control" id="password" required>
+                                    </div>
+                                </div>
+                                <div class="checkbox-custom checkbox-system mb5">
+                                    <input type="checkbox" id="showPassword" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">
+                                    <label for="showPassword">Show Password</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <select class="form-control" name="role" required>
+                                            <option value="0">0 - Super User</option>
+                                            <option value="1">1 - Regular User</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-bottom:0 !important;">
+                                    <div class="col-lg-12">
+                                        <input style="border-bottom: 4px solid #2ecc71 !important" type="submit" value="Update Info" class="btn btn-primary pull-right">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                &nbsp;
+            </div>
+
+        </div>
+
+
+
+
+
+
+        </div>
+    </section>
+{% endblock %}

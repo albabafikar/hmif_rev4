@@ -1,0 +1,6 @@
+.idea/
+vendor/
+app/cache
+app/config.php
+app/logs/
+public/document/

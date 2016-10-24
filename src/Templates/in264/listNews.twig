@@ -1,0 +1,92 @@
+{% extends 'in264/layout/head.twig' %}
+{% block content %}
+    <section id="content" class="table-layout animated fadeIn borderedBackground">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-11 center-block">
+                    <div class="col-md-12">
+                        <div class="f-center">
+                            <i class="imoon-3x imoon imoon-newspaper"></i>
+                            <h1> Article List</h1>
+                            <p>Manage and modify News article</p>
+                        </div>
+                        {% for message in app.session.getFlashBag.get('message_success') %}
+                            <div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="imoon imoon-cross"></i></button>
+                                <span style="color:#444">{{ message}}</span>
+                            </div>
+                        {% endfor %}
+                        <div style="padding:30px 10px 10px 10px;background-color: #fff;margin-top: 10px;border:6px solid rgba(204, 204, 204,0.5)">
+                            {% if ((app.session.get('role')['value']) == 0) %}
+                                <a href="{{ ('/createNews') }}" class="btn btn-primary" style="margin:0 0 15px 5px;"><i class="glyphicons glyphicons-user_add"></i> &nbsp;New Article</a>
+                            {% endif %}
+
+                            <div class="panel panel-visible" id="spy2">
+                                <div class="panel-body pn">
+                                    <table class="table table-striped table-hover table-bordered" id="datatable2" cellspacing="0" width="100%">
+
+                                        <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Title</th>
+                                            <th>Username</th>
+                                            <th>Created Date</th>
+                                            <th>Updated Date</th>
+                                            {% if ((app.session.get('role')['value']) == 0) %}
+                                                <th>Operation</th>
+                                            {% endif %}
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% if (newsList|length > 0)%}
+                                        {% set i = 1 %}
+                                        {% for list in newsList %}
+
+                                            <tr>
+                                                <td>{{ i }}</td>
+                                                <td>{{ list.title }}</td>
+                                                <td style="text-transform: uppercase">{{ list.username }}</td>
+                                                <td>{{ list.createdAt|date('d M Y') }}</td>
+                                                <td>{{ list.updatedAt|date('d M Y') }}</td>
+
+                                                {% if ((app.session.get('role')['value']) == 0) %}
+                                                    <td>
+                                                        {#<a href="/delete/{{ list.newsId }}" title="Delete Account">#}
+                                                            {#<i class="glyphicons glyphicons-bin" style="color: #EC6F5A"></i>#}
+                                                        {#</a>#}
+                                                        {% if (list.featured == '0') %}
+                                                            <a href="/changeFeaturedStatus?newsId={{ list.newsId }}" title="Mark as Featured"><i class="glyphicons glyphicons-star" style="color:#2ecc71;"></i></a>&nbsp;
+                                                        {% else %}
+                                                            <a href="/changeFeaturedStatus?newsId={{ list.newsId }}" title="Remove from Featured"><i class="glyphicons glyphicons-dislikes" style="color:#e74c3c;"></i></a>&nbsp;
+                                                        {% endif %}
+                                                        <a href="/editNews?id={{ list.newsId }}" title="Edit News"><i class="glyphicons glyphicons-pencil" style="color:#9b59b6;"></i></a>&nbsp;
+                                                        <a href="/deleteNews?id={{ list.newsId }}" title="Delete News"><i class="glyphicons glyphicons-bin" style="color:#b60b00;"></i></a>
+                                                    </td>
+                                                {% endif %}
+
+
+                                            </tr>
+
+                                            {% set i = i + 1 %}
+                                        {% endfor %}
+                                        </tbody>
+                                        {% else %}
+                                            <tbody>
+                                            <tr>
+                                                <td colspan="10" style="text-align: center" class="primary">Tidak ada Berita</td>
+                                            </tr>
+                                            </tbody>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

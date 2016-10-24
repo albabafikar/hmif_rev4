@@ -1,0 +1,71 @@
+@font-face{
+    font-family:"Raleway";
+    src:url('../fonts/Raleway-Regular.ttf');
+}
+
+a,a:hover{
+	text-decoration:none;
+	cursor: pointer;
+}
+.admin-form .panel{
+	border:none;
+	border-top:10px solid #3498DB;
+}
+
+body{
+    font-family:"Raleway","Open Sans","Sans-Serif" !important;
+}
+
+body.external-page #content .admin-form {
+	max-width:400px;
+}
+
+div.row.mb15.table-layout h1.h1-logo {
+	font-size: 3em;
+	color: #000;
+}
+
+div.row.mb15.table-layout h1.h1-logo > small {
+	color: #ededed;
+}
+
+.sidebar-menu > li {
+	margin: 15px 0;
+}
+
+.navbar-branding a.navbar-brand{
+	padding-left:7px;
+}
+
+#toggle_sidemenu_l{
+	width:60px;
+}
+
+.borderedBackground{
+	background: url('../img/diagonal-line-bg-light.png');
+	background-repeat: repeat;
+}
+
+.f-center{
+	text-align: center;
+}
+
+.alignLeft{
+	text-align: left;
+}
+
+.alignRight{
+	text-align: right;
+}
+
+.f-left{
+	float:left;
+}
+
+.f-right{
+	float:right;
+}
+
+a,a:hover{
+	text-decoration: none;
+}

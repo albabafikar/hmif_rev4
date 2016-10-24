@@ -1,0 +1,41 @@
+{% block navbar %}
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="#hero">
+                    <!-- Replace Drifolio Bootstrap with your Site Name and remove icon-grid to remove the placeholder icon -->
+                    <!--<span class="brandicon icon-bubbles"></span>-->
+                    <span><img src="{{ app.request.basepath }}assets/img/hmif.png" height="35"> </span>
+                    <span class="brandname">HMIF <small>STT Malang</small></span>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right"><!--YOUR NAVIGATION ITEMS STRAT BELOW-->
+                    <li><a href="#about"><span class="btnicon icon-directions"></span>About</a></li>
+                    <li><a href="#team"><span class="btnicon icon-user"></span>Team</a></li>
+                    <li><a href="#news"><span class="btnicon icon-feed"></span>News</a></li>
+                    <li><a href="mailto:hmifsttmalang@gmail.com"><span class="btnicon icon-envelope-open"></span>Contact</a></li>
+                    {% if(app.session.get('uname')['value'] is defined) %}
+                        <li><a href="{{ ('/homeAdmin') }}" style="text-transform: capitalize;"><span class="btnicon icon-home"></span>{{ app.session.get('uname')['value'] }}</a></li>
+
+                    {% else %}
+
+                    <li><a href="{{ ('/loginAdmin') }}"><span class="btnicon icon-login"></span>Sign In</a></li>
+
+                    {% endif %}
+                    <!--<li class="active"><a href=""><span class="btnicon icon-cloud-download"></span>Download CV</a></li>-->
+                </ul>
+
+            </div><!--.nav-collapse -->
+        </div>
+    </nav>
+{% endblock %}

@@ -1,0 +1,301 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <header>
+
+        <div id="hero" class="hero">
+            <div class="container herocontent">
+                <h1 class="wow bounceInDown" data-wow-duration="3s">Learning by Experience for better Innovations.</h1>
+            </div>
+        </div>
+
+        {% include 'navbar.twig' %}
+    </header><!--header end-->
+
+    <!-- ===========================
+FEATURED CLIENTS SECTION START
+=========================== -->
+    <div id="clients">
+        <div class="container">
+            <div class="col-md-3">
+                <h4>Proudly worked with:</h4>
+            </div>
+            <div class="col-md-9">
+                <ul><!--CLIENTS LOGO-->
+                    <li><img src="{{ app.request.basepath }}assets/img/php-malang2.png" alt="PHP Malang User"></li>
+                    <li><img src="{{ app.request.basepath }}assets/img/dilo.png" alt="DiLo Malang"></li>
+                    <li><img src="{{ app.request.basepath }}assets/img/manual.svg" alt="Komaltechno" height="40"></li>
+                </ul><!--CLIENTS LOGO END-->
+            </div>
+        </div>
+        <hr><!-- SECTION SEPARETOR LINE -->
+    </div><!--FEATURED CLIENTS SECTION END-->
+
+
+    <!-- ===========================
+    ABOUT SECTION START
+    =========================== -->
+
+    <div id="about" class="container">
+
+        <!-- LEFT PART OF THE ABOUT SECTION -->
+        <div class="col-md-6">
+            <div class="row">
+                <h2 class="wow fadeInDown" data-wow-duration="1s">Our Vision</h2>
+
+                <h4 class="wow fadeInUp" data-wow-duration="1s">Making the students of Informatics Engineering Technical High School Malang excelled in developing information and communication technology.</h4>
+                <hr class="separetor">
+
+                <h3 class="wow fadeInUp" data-wow-duration="1s">
+                    To Make it Happens
+                </h3>
+                <p style="color:#ea9312;font-size: 1em">1. Unite the students of Informatics Engineering Technical High School Malang</p>
+                <p style="color:#ea9312;font-size: 1em">2. Actively follow the development of information and communication technology together</p>
+                <p style="color:#ea9312;font-size: 1em">3. Establishing collaborative research and practice</p>
+                <p style="color:#ea9312;font-size: 1em">4. Together bring innovation masterpiece of information and communication technology</p>
+
+                <a class="dribbble-follow-button wow bounce" href="" style="display:none">Follow</a>
+            </div> <!-- ABOUT INFO END -->
+
+
+
+        </div><!-- LEFT PART OF THE ABOUT SECTION END -->
+        <!--Left part end-->
+
+        <!-- RIGHT PART OF THE ABOUT SECTION -->
+        <div class="col-md-6 myphoto">
+            <img src="{{ app.request.basepath }}assets/img/1.png" alt="Mamun Srizon" class="hmif-image-1 wow fadeInDown"  data-wow-duration="2s">
+            <img src="{{ app.request.basepath }}assets/img/2.png" alt="Mamun Srizon" class="hmif-image-3 wow fadeInLeft"  data-wow-duration="2s">
+            <img src="{{ app.request.basepath }}assets/img/3.png" alt="Mamun Srizon" class="hmif-image-4 wow fadeInRight"  data-wow-duration="2s">
+            <img src="{{ app.request.basepath }}assets/img/4.png" alt="Mamun Srizon" class="hmif-image-2 wow fadeIn"  data-wow-duration="2s">
+
+        </div><!-- RIGHT PART OF THE ABOUT SECTION END -->
+    </div>
+    <hr><!-- SECTION SEPARETOR LINE -->
+
+
+    <!-- ===========================
+    SERVICE SECTION START
+    =========================== -->
+    <div id="services" class="container">
+
+        <!-- SERVICE SECTION HEADING START -->
+        <div class="sectionhead  row wow fadeInUp">
+            <span class="bigicon icon-cup "></span>
+            <h3>What we are able to do.</h3>
+            <hr class="separetor">
+        </div><!--SERVICE SECTION HEADING END-->
+
+        <!-- SERVICE ITEMS START -->
+        <div class="row">
+            <div class="col-md-6 col-lg-4 wow bounceInLeft" data-wow-duration="1s">
+                <img src="{{ app.request.basepath }}assets/img/circlecompass.png" alt="" height="97">
+                <h4>Research</h4>
+                <p>Grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator. Eligendi impedit dolores nulla.</p>
+            </div> <!-- ITEM END -->
+
+            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1s">
+                <img src="{{ app.request.basepath }}assets/img/megaphone.png" alt="" height="97">
+                <h4>Public Speaking</h4>
+                <p>Grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator. Eligendi impedit dolores nulla.</p>
+            </div> <!-- ITEM END -->
+
+            <div class="col-md-6 col-lg-4 wow bounceInRight" data-wow-duration="1s">
+                <img src="{{ app.request.basepath }}assets/img/trophy.png" alt="" height="97">
+                <h4>Internal Competition</h4>
+                <p>Grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator. Eligendi impedit dolores nulla.</p>
+            </div> <!-- ITEM END -->
+
+            <div class="col-md-6 col-lg-4 wow bounceInLeft" data-wow-duration="1s">
+                <img src="{{ app.request.basepath }}assets/img/lightbulb.png" alt="" height="97">
+                <h4>Mentoring Proccess</h4>
+                <p>Grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator. Eligendi impedit dolores nulla.</p>
+            </div> <!-- ITEM END -->
+
+            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1s">
+                <img src="{{ app.request.basepath }}assets/img/crossroads.png" alt="" height="97">
+                <h4>Business Purposes</h4>
+                <p>Grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator. Eligendi impedit dolores nulla.</p>
+            </div> <!-- ITEM END -->
+
+            <div class="col-md-6 col-lg-4 wow bounceInRight" data-wow-duration="1s">
+                <img src="{{ app.request.basepath }}assets/img/paintcan.png" alt="" height="97">
+                <h4>Creativity Improvement</h4>
+                <p>Grinder affogato, dark, sweet carajillo, flavour seasonal aroma single origin cream. Percolator. Eligendi impedit dolores nulla.</p>
+            </div> <!-- ITEM END -->
+        </div><!-- SERVICE ITEMS END-->
+    </div><!-- SERVICE SECTION END -->
+
+    <!-- ===========================
+    PORTFOLIO SECTION START
+    =========================== -->
+    <div id="team">
+        <div class="sectionhead wow bounceInDown" data-wow-duration="1s">
+            <h1>Who Behind HMIF</h1>
+            <hr class="separetor">
+        </div><!-- PORTFOLIO SECTION HEAD END -->
+
+        <!-- PORTFOLIO ITEMS START -->
+        <div class="container">
+            <div class="row">
+                <!-- 1ST TESTIMONIAL ITEM -->
+                <div class="col-md-4">&nbsp;</div>
+                <div class="col-md-4 wow bounceIn" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/8.png" alt="fikar">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>M. Ziaelfikar A.</strong></h3>
+                        <p>Leader of HMIF 2016</p>
+                    </div>
+                </div><!-- 1ST TESTIMONIAL ITEM END -->
+                <div class="col-md-4">&nbsp;</div>
+            </div>
+            <hr class="separetor"><br>
+
+            <div class="row">
+                <div class="col-md-6 wow bounceInLeft" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/7.png" alt="Anggita">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>Satriya Anggita K.</strong></h3>
+                        <p>Co-Leader of HMIF 2016</p>
+                    </div>
+                </div>
+                <div class="col-md-6 wow bounceInRight" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/4.png" alt="Denis">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>Denis P.</strong></h3>
+                        <p>Co-Leader of HMIF 2016</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 wow bounceInLeft" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/1.png" alt="Dan">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>M. Lukman Arif</strong></h3>
+                        <p>Lead of Organization &amp; Human Res.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 wow bounceIn" data-wow-duration="1s">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 wow bounceInRight" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/5.png" alt="Dan">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>Danny Arga A.</strong></h3>
+                        <p>Lead of Startup &amp; Development</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 wow bounceInUp" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/2.png" alt="Dan">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>Dito Laksono YP</strong></h3>
+                        <p>Lead of Research &amp; Technology</p>
+                    </div>
+                </div>
+                <div class="col-md-6 wow bounceInUp" data-wow-duration="1s">
+                    <div class="clientsphoto">
+                        <img src="{{ app.request.basepath }}assets/img/team/3.png" alt="Dan">
+                    </div>
+
+                    <div class="quote">
+                        <blockquote>
+                        </blockquote>
+                        <h3><strong>A. Dzaki Afif.</strong></h3>
+                        <p>Lead of Public Relationship</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Replace the URL below with your dribbble profile URL-->
+        <a class="btn btn-default wow fadeInUp" href="" role="button">
+            <span class="btnicon icon-user"></span>
+            <span class="button_text">View all Team</span>
+        </a>
+
+    </div><!-- PORTFOLIO ITEMS END -->
+    <!-- PORTFOLIO SECTION END -->
+    <div id="news" class="whiteBack">
+        <div class="container">
+            <div class="sectionhead  row wow fadeInUp">
+                <span class="bigicon icon-feed" style="color:#2ecc71"></span>
+                <h3>News.</h3>
+                <hr class="separetor">
+            </div>
+            <div id="newsCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#newsCarousel" data-slide-to="0" class="active"></li>
+                    {% set i = 1 %}
+                    {% for something in news %}
+                    <li data-target="#newsCarousel" data-slide-to="{{ i }}"></li>
+                    {% endfor %}
+                </ol>
+
+                <div class="carousel-inner" role="listbox">
+
+                    {% if (news == null) %}
+                        <div class="item active" style="height: 500px;">
+                            <div class="carousel-caption">
+                                <h2>News Not Available</h2>
+                                <br/>
+                                <pre><p>News Not Available for a moment.</p></pre>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="item active" style="height: 500px;">
+                            <div class="carousel-caption">
+                                <h2>Loading ...</h2>
+                                <br/>
+                                <pre><p>Please wait, while we loading news for you.</p></pre>
+                            </div>
+                        </div>
+                        {% for infoNews in news %}
+                            <div class="item" style="height: 500px;">
+                                <div class="carousel-caption">
+                                    <h2>{{ infoNews.title }}</h2>
+                                    <br/>
+                                    <pre><p>{{ infoNews.content }}</p></pre>
+                                    <a href="" class="btn btn-primary btn-lg btn-flat"><span>Read More</span></a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
